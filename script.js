@@ -17,31 +17,31 @@ const computerSelection = computerPlay();
 function playRound() {
 
     
-    if ( playerSelection.toLowerCase() === computerPlay()) {
+    if ( playerSelection.toLowerCase() === computerSelection) {
         console.log("Its a tie!");
     }
 
-    else if (playerSelection.toLowerCase() === "rock" && computerPlay() === "scissors") {
+    else if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") {
         console.log("You win. ROCK crushes scissors");
     }
 
-    else if (playerSelection.toLowerCase() === "rock" && computerPlay() === "paper") {
+    else if (playerSelection.toLowerCase() === "rock" && computerSelection === "paper") {
         console.log("You loose. Paper wraps ROCK");
     }
 
-    else if (playerSelection.toLowerCase() === "paper" && computerPlay() === "scissors") {
+    else if (playerSelection.toLowerCase() === "paper" && computerSelection === "scissors") {
         console.log("You loose. Scissors cut PAPER");
     }
 
-    else if (playerSelection.toLowerCase() === "paper" && computerPlay() === "rock") {
+    else if (playerSelection.toLowerCase() === "paper" && computerSelection === "rock") {
         console.log("You win. PAPER wraps rock");
     }
 
-    else if (playerSelection.toLowerCase() === "scissors" && computerPlay() === "paper") {
+    else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper") {
         console.log("You win. SCISSORS cut paper");
     }
 
-    else if (playerSelection.toLowerCase() === "scissors" && computerPlay() === "rock") {
+    else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "rock") {
         console.log("You loose. Rock crushes SCISSORS");
     }
 
@@ -49,3 +49,5 @@ function playRound() {
     }
 
 console.log(playRound());
+
+function game() {}

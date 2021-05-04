@@ -63,46 +63,32 @@ function playRound(playerSelection, computerSelection) {
         console.log("You loose. Rock crushes SCISSORS");
     }
 
-    else console.log("Did you spell choice of your weapon correctly?");
+    else console.log("Is your spelling correct? Choose rock, paper or scissors.");
     }
-
-
-
 
 
 function game() {
 
-    playRound(playerSelection, computerSelection );
-    console.log("Your score: " + playerScore);
-    console.log("Computer score: " + computerScore);
+    while (playerScore < 5 || computerScore < 5) {
 
-    playRound(playerSelection, computerSelection );
-    console.log("Your score: " + playerScore);
-    console.log("Computer score: " + computerScore);
+        if (playerScore >= 5) {
 
-    playRound(playerSelection, computerSelection );
-    console.log("Your score: " + playerScore);
-    console.log("Computer score: " + computerScore);
+            console.log("CONGRATULATIONS! You win the game!");
+            console.log("Refresh the page to play again.")
+            break;
+        }
 
-    playRound(playerSelection, computerSelection );
-    console.log("Your score: " + playerScore);
-    console.log("Computer score: " + computerScore);
+        else if (computerScore >= 5) {
 
-    playRound(playerSelection, computerSelection );
-    console.log("Your score: " + playerScore);
-    console.log("Computer score: " + computerScore);
+            console.log("OH NO! You lost the game!");
+            console.log("Refresh the page to play again.");
+            break;
+        }
 
-    if (playerScore > computerScore) {
-
-        console.log("You WIN the game!")
-    }
-
-    else if (playerScore < computerScore) {
-
-        console.log("You LOOSE the game!")
-    }
-    
-
-}
+        playRound(playerSelection, computerSelection);
+        console.log("Your score: " + playerScore);
+        console.log("Computer score: " + computerScore);
+    }    
+} 
 
 game();

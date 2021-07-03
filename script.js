@@ -4,8 +4,7 @@ function computerPlay() {
         "paper",
         "scissors"
     ];
-
-     return choice[Math.floor(Math.random() * choice.length)];
+    return choice[Math.floor(Math.random() * choice.length)];
 }
 
 let playerSelection = "Enter rock, paper or scissors";
@@ -22,27 +21,27 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         console.log("Its a tie!");
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        ++playerScore
+        ++playerScore;
         console.log("You win. ROCK crushes scissors");
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        ++computerScore
+        ++computerScore;
         console.log("You loose. Paper wraps ROCK");
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        ++playerScore
+        ++playerScore;
         console.log("You win. PAPER wraps rock");
     } else if (playerSelection  === "paper" && computerSelection === "scissors") {
-        ++computerScore
+        ++computerScore;
         console.log("You loose. Scissors cut PAPER");
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        ++playerScore
+        ++playerScore;
         console.log("You win. SCISSORS cut paper");
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        ++computerScore
+        ++computerScore;
         console.log("You loose. Rock crushes SCISSORS");
     } else console.log("Is your spelling correct? Choose rock, paper or scissors.");
     }
 
-//function game() {
+function game() {
 
     while (playerScore < 5 || computerScore < 5) {
         if (playerScore >= 5) {
@@ -58,6 +57,6 @@ function playRound(playerSelection, computerSelection) {
         console.log("Your score: " + playerScore);
         console.log("Computer score: " + computerScore);
     }    
-//} 
+} 
 
-//game();
+game();

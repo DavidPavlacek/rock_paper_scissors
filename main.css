@@ -1,0 +1,19 @@
+body {
+    background-color: #222831;
+}
+#header {
+    text-align: center;
+    padding: 2rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    border-bottom: 5px solid #ffb900;
+    color: #ffb900;
+    background-color: #393e46;
+}
+
+#rps{
+    font-size: 300%;
+}
+#description {
+    margin-top: 1.5rem;
+}

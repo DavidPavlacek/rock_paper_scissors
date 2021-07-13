@@ -1,19 +1,149 @@
 body {
+    margin: 0;
+    padding: 0;
     background-color: #222831;
 }
-#header {
-    text-align: center;
-    padding: 2rem;
-    font-family: sans-serif;
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Quicksand", sans-serif;
     font-weight: bold;
-    border-bottom: 5px solid #ffb900;
+
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr;
+    grid-template-rows: 150px 60px 200px 1fr 100px;
+    grid-gap: 20px; 
+}
+
+.header {
+    border-bottom: 2px solid #ffb900;
     color: #ffb900;
     background-color: #393e46;
+    text-align: center;
+    grid-column: 1/ 6;
+    grid-row-start: 1 / 2;
 }
 
 #rps{
     font-size: 300%;
+
 }
-#description {
-    margin-top: 1.5rem;
+
+.human-label {
+    color: #e5e5e5;
+    font-weight: lighter;
+    text-align: center;
+    grid-column: 2 / 3;
+    align-self: end;
+    margin: 0;  
+}
+
+.computer-label {
+    color: #e5e5e5;
+    font-weight: lighter;
+    text-align: center;
+    grid-column: 3 / 4;
+    align-self: end;
+    margin: 0;
+}
+
+.user-container {
+    color: #e5e5e5;
+    font-size: 150%;
+    font-size: 1rem;
+    border: #e5e5e5 solid 1px;
+    border-radius: 10px;
+    background-color: #393e46;
+    min-width: 300px;
+    max-width: 500px;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    display: grid;
+    align-self: stretch;
+}
+
+.computer-container {
+    color: #e5e5e5;
+    font-size: 150%;
+    font-size: 1rem;
+    border: #e5e5e5 solid 1px;
+    border-radius: 10px;
+    background-color: #393e46;
+    min-width: 300px;
+    max-width: 500px;
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-around;
+}
+
+.fas {
+    font-size: 40px;
+    color: #e5e5e5;
+    padding-top: 15px;
+    padding-left: 20px;   
+}
+
+.score-wrapped {
+   text-align: center;
+   line-height: 0;
+   padding-right: 20px;
+}
+
+.user-points {
+    font-size: 2rem;
+    color: #ffb900;
+}
+
+.computer-points {
+    font-size: 2rem;
+    color: #ffb900;
+}
+
+.user-buttons {
+    display: flex;
+    justify-content: space-around;
+    line-height: 0;
+}
+
+.computer-buttons {
+    display: flex;
+    justify-content: space-around;
+    line-height: 0;
+}
+
+.rock-button {
+    background-color: #222831;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1.5;
+    margin: 10px;
+}
+
+.paper-button {
+    background-color: #222831;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1.5;
+    margin: 10px;
+}
+
+.scissors-button {
+    background-color: #222831;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1.5;
+    margin: 10px;
+}
+
+.far {
+    padding-top: 10px;
+    font-size: 60px; 
 }

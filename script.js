@@ -1,6 +1,6 @@
 function computerPlay() {
     const choice = [
-        "rock",
+        "rock",       
         "paper",
         "scissors"
     ];

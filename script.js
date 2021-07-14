@@ -10,86 +10,77 @@ function computerPlay() {
 let computerSelection = computerPlay();
 let playerScore = 0;
 let computerScore = 0;
+let round = 0;
+let gameIsActive = true;
 
 function winCondition() {
     if (playerScore >= 5) {
-        console.log("CONGRATULATIONS! You win the game!");
-        console.log("Refresh the page to play again.");
+        gameIsActive = false;
+        document.getElementById("round-result").textContent = "CONGRATULATIONS! You win the game!"
     }else if (computerScore >= 5) {
-        console.log("OH NO! You lost the game!");
-        console.log("Refresh the page to play again.");
+        gameIsActive = false;
+        document.getElementById("round-result").textContent = "OH NO! You lost the game!"
 }};
 
 function playRound(playerSelection, computerSelection) {
 
     computerSelection = computerPlay();
-    
+    let newLine = "\r\n"
+
     if (playerSelection === computerSelection) {
-        console.log("Its a tie!");
+        ++round
+        document.getElementById("round-result").textContent += "#" + round + " Its a tie! No points." + newLine 
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
+        ++round
         ++playerScore;
         document.getElementById("user-points").textContent = playerScore;
-        console.log("You win. ROCK crushes scissors");
+        document.getElementById("round-result").textContent += "#" + round + " You win. ROCK crushes scissors!"  + newLine
     } else if (playerSelection === "rock" && computerSelection === "paper") {
+        ++round
         ++computerScore;
         document.getElementById("computer-points").textContent = computerScore;
-        console.log("You loose. Paper wraps ROCK");
+        document.getElementById("round-result").textContent += "#" + round + " You loose. Paper wraps ROCK!" + newLine
     } else if (playerSelection === "paper" && computerSelection === "rock") {
+        ++round
         ++playerScore;
         document.getElementById("user-points").textContent = playerScore;
-        console.log("You win. PAPER wraps rock");
+        document.getElementById("round-result").textContent += "#" + round + " You win. PAPER wraps rock!" + newLine
     } else if (playerSelection  === "paper" && computerSelection === "scissors") {
+        ++round
         ++computerScore;
         document.getElementById("computer-points").textContent = computerScore;
-        console.log("You loose. Scissors cut PAPER");
+        document.getElementById("round-result").textContent += "#" + round + " You loose. Scissors cut PAPER!" + newLine
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        ++round
         ++playerScore;
         document.getElementById("user-points").textContent = playerScore;
-        console.log("You win. SCISSORS cut paper");
+        document.getElementById("round-result").textContent += "#" + round + " You win. SCISSORS cut paper!" + newLine
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        ++round
         ++computerScore;
         document.getElementById("computer-points").textContent = computerScore;
-        console.log("You loose. Rock crushes SCISSORS");
+        document.getElementById("round-result").textContent += "#" + round + " You loose. Rock crushes SCISSORS!" + newLine
     } else console.log("Is your spelling correct? Choose rock, paper or scissors.");
     winCondition();
 }
 
 
 document.querySelector(".rock-button").addEventListener("click", function() {
+    if (gameIsActive === true) {
     playerSelection = "rock"
     return playRound(playerSelection, computerSelection);
-});
+}});
 
 document.querySelector(".paper-button").addEventListener("click", function() {
+    if (gameIsActive === true) {
     playerSelection = "paper"
     return playRound(playerSelection, computerSelection);
-});
+}});
 
 document.querySelector(".scissors-button").addEventListener("click", function() {
+    if (gameIsActive === true) {
     playerSelection = "scissors"
     return playRound(playerSelection, computerSelection);
-});
-
-
-
-
-
-/*
-function game() {
-    while (playerScore < 5 || computerScore < 5) {
-        if (playerScore >= 5) {
-            console.log("CONGRATULATIONS! You win the game!");
-            console.log("Refresh the page to play again.");
-            break;
-        } else if (computerScore >= 5) {
-            console.log("OH NO! You lost the game!");
-            console.log("Refresh the page to play again.");
-            break;
-        }
-        playRound(playerSelection, computerSelection);
-        console.log("Your score: " + playerScore);
-        console.log("Computer score: " + computerScore);
-    }   
-} */ 
+}});
 
 

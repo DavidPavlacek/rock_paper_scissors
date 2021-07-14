@@ -11,7 +11,7 @@ body {
     font-weight: bold;
     display: grid;
     grid-template-columns:  1fr 1fr 1fr 1fr;
-    grid-template-rows: 150px 60px 200px 1fr 100px;
+    grid-template-rows: 150px 60px 200px 100fr 1fr;
     grid-gap: 20px; 
 }
 
@@ -129,4 +129,14 @@ body {
     border: 1px solid #ffb900;
     box-shadow: 0px 1px 5px 0px #ffb900;
     color: #ffb900;
+}
+
+#round-result {
+    grid-column: 2 / 4;
+    grid-row: 4 / 5;
+    color: #ffb900;
+    font-size: 1rem;
+    line-height: 150%;
+    white-space: pre;
+    text-align: center;
 }

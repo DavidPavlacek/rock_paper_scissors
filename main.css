@@ -90,7 +90,7 @@ body {
    padding-right: 20px;
 }
 
-.user-points, .computer-points {
+#user-points, #computer-points {
     font-size: 2rem;
     color: #ffb900;
 }

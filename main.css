@@ -106,7 +106,7 @@ body {
     font-size: 60px; 
 }
 
-.rock-button, .paper-button, .scissors-button {
+#rock-button, #paper-button, #scissors-button {
     background-color: #222831;
     border: 1px solid #e5e5e5;
     border-radius: 10px;
@@ -115,7 +115,7 @@ body {
     margin: 10px;
 }
 
-.rock-button-computer, .paper-button-computer, .scissors-button-computer {
+#rock-button-computer, #paper-button-computer, #scissors-button-computer {
     background-color: #222831;
     border: 1px solid #e5e5e5;
     border-radius: 10px;
@@ -124,11 +124,12 @@ body {
     margin: 10px;
 }
 
-.rock-button:hover, .paper-button:hover, .scissors-button:hover {
+#rock-button:hover, #paper-button:hover, #scissors-button:hover {
     cursor: pointer;
     border: 1px solid #ffb900;
     box-shadow: 0px 1px 5px 0px #ffb900;
     color: #ffb900;
+    transform: scale(0.9)
 }
 
 #round-result {
@@ -139,4 +140,16 @@ body {
     line-height: 150%;
     white-space: pre;
     text-align: center;
+}
+
+.played {
+    border: 1px solid #ffb900;
+    box-shadow: 0px 1px 5px 0px #ffb900;
+    color: #ffb900;
+    transition: 0.7s;
+    transform:scale(1.1)
+}
+
+.winCondition {
+    font-size: 200%;
 }

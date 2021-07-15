@@ -128,8 +128,6 @@ body {
     cursor: pointer;
     border: 1px solid #ffb900;
     box-shadow: 0px 1px 5px 0px #ffb900;
-    color: #ffb900;
-    transform: scale(0.9)
 }
 
 #round-result {
@@ -146,10 +144,6 @@ body {
     border: 1px solid #ffb900;
     box-shadow: 0px 1px 5px 0px #ffb900;
     color: #ffb900;
-    transition: 0.7s;
+    transition: 1.2s;
     transform:scale(1.1)
-}
-
-.winCondition {
-    font-size: 200%;
 }

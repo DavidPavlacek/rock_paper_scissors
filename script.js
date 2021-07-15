@@ -22,10 +22,12 @@ let userScissors = document.getElementById("scissors-button");
 function winCondition() {
     if (playerScore >= 5) {
         gameIsActive = false;
-        document.getElementById("round-result").textContent = "CONGRATULATIONS! You've won the game!"
+        document.getElementById("round-result").textContent = "CONGRATULATIONS! You've won the game!";
+        document.querySelector("#play-again").style.display = "";
     }else if (computerScore >= 5) {
         gameIsActive = false;
-        document.getElementById("round-result").textContent = "OH NO! You've lost the game!"
+        document.getElementById("round-result").textContent = "OH NO! You've lost the game!";
+        document.querySelector("#play-again").style.display = "";
 }};
 
 function removeComputerTransition() {
@@ -130,5 +132,20 @@ document.querySelector("#scissors-button").addEventListener("click", function() 
         playRound(playerSelection, computerSelection);
         return removeTransitionScissors();
 }});
+
+function init() {
+    document.getElementById("user-points").textContent = "0";
+    document.getElementById("computer-points").textContent = "0";
+    document.getElementById("round-result").textContent = " ";
+    document.querySelector("#play-again").style.display = "none";
+    round = 0;
+    playerScore = 0;
+    computerScore = 0;
+    gameIsActive = true;
+}
+
+document.querySelector("#play-again").addEventListener("click", init);
+document.querySelector("#play-again").style.display = "none";
+
 
 

@@ -1,70 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="main.css" rel="stylesheet" type="text/css" media="all"/>
-    <title>Rock Paper Scissors</title>
-    <script src="https://kit.fontawesome.com/e579cdc13f.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href="main.css" rel="stylesheet" type="text/css" media="all" />
+      <title>Rock Paper Scissors</title>
+      <script
+         src="https://kit.fontawesome.com/e579cdc13f.js"
+         crossorigin="anonymous"
+      ></script>
+   </head>
+   <body>
+      <div class="container">
+         <div class="header">
             <h1 id="rps">Rock Paper Scissors</h1>
             <p>First to 5 points wins</p>
-        </div>
-        <h2 class="human-label">Human</h2>
-        <div class="user-container">
+         </div>
+         <h2 class="human-label">Human</h2>
+         <div class="user-container">
             <div class="score-board">
-                <i class="fas fa-user"></i>
-                <div class="score-wrapped">
-                    <h3 class="score">Score</h3>
-                    <h2 id="user-points">0</h2>
-                </div>    
+               <i class="fas fa-user"></i>
+               <div class="score-wrapped">
+                  <h3 class="score">Score</h3>
+                  <h2 id="user-points">0</h2>
+               </div>
             </div>
             <div class="user-buttons">
-                <div id="rock-button">
-                    <i class="far fa-hand-rock"></i>
-                    <h3>Rock</h3>
-                </div>
-                <div id="paper-button">
-                    <i class="far fa-hand-paper"></i>
-                    <h3>Paper</h3>
-                </div>
-                <div id="scissors-button">
-                    <i class="far fa-hand-scissors"></i>
-                    <h3>Scissors</h3>
-                 </div>    
+               <div id="rock-button">
+                  <i class="far fa-hand-rock"></i>
+                  <h3>Rock</h3>
+               </div>
+               <div id="paper-button">
+                  <i class="far fa-hand-paper"></i>
+                  <h3>Paper</h3>
+               </div>
+               <div id="scissors-button">
+                  <i class="far fa-hand-scissors"></i>
+                  <h3>Scissors</h3>
+               </div>
             </div>
-        </div>
-        <h2 class="computer-label">Computer</h2>
-        <div class="computer-container">
+         </div>
+         <h2 class="computer-label">Computer</h2>
+         <div class="computer-container">
             <div class="score-board">
-                <i class="fas fa-laptop"></i>
-                <div class="score-wrapped">
-                    <h3>Score</h3>
-                    <h2 id="computer-points">0</h2>
-                </div>
-            </div>  
-            <div class="computer-buttons">
-                <div id="rock-button-computer">
-                    <i class="far fa-hand-rock"></i>
-                    <h3>Rock</h3>
-                </div>
-                <div id="paper-button-computer">
-                    <i class="far fa-hand-paper"></i>
-                    <h3>Paper</h3>
-                </div>
-                <div id="scissors-button-computer">
-                    <i class="far fa-hand-scissors"></i>
-                    <h3>Scissors</h3>
-                 </div>    
+               <i class="fas fa-laptop"></i>
+               <div class="score-wrapped">
+                  <h3>Score</h3>
+                  <h2 id="computer-points">0</h2>
+               </div>
             </div>
-        </div>
-        <button id="play-again">Play Again?</button>
-        <div id="round-result"></div>
-    </div>
-    <script src=script.js></script>
-</body>
+            <div class="computer-buttons">
+               <div id="rock-button-computer">
+                  <i class="far fa-hand-rock"></i>
+                  <h3>Rock</h3>
+               </div>
+               <div id="paper-button-computer">
+                  <i class="far fa-hand-paper"></i>
+                  <h3>Paper</h3>
+               </div>
+               <div id="scissors-button-computer">
+                  <i class="far fa-hand-scissors"></i>
+                  <h3>Scissors</h3>
+               </div>
+            </div>
+         </div>
+         <button id="play-again">Play Again?</button>
+         <div id="round-result"></div>
+      </div>
+      <script src="script.js"></script>
+   </body>
 </html>

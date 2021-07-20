@@ -108,6 +108,13 @@ body {
    font-size: 60px;
 }
 
+.button-name {
+   font-size: 18px;
+   display: flex;
+   justify-content: center;
+   padding-top: 18px;
+}
+
 #rock-button,
 #paper-button,
 #scissors-button {
@@ -116,7 +123,8 @@ body {
    border-radius: 10px;
    text-align: center;
    flex: 1.5;
-   margin: 10px;
+   margin: 5px;
+   height: 105px;
 }
 
 #rock-button-computer,
@@ -127,7 +135,8 @@ body {
    border-radius: 10px;
    text-align: center;
    flex: 1.5;
-   margin: 10px;
+   margin: 5px;
+   height: 105px;
 }
 
 #rock-button:hover,

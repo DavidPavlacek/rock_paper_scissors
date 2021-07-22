@@ -29,42 +29,69 @@ function winCondition() {
    }
 }
 
-function removeComputerTransition() {
-   computerRock.classList.remove("played");
-   computerPaper.classList.remove("played");
-   computerScissors.classList.remove("played");
+function resetTransition() {
+   if (computerRock.classList.contains("played")) {
+      computerRock.classList.remove("played");
+   }
+   if (computerPaper.classList.contains("played")) {
+      computerPaper.classList.remove("played");
+   }
+   if (computerScissors.classList.contains("played")) {
+      computerScissors.classList.remove("played");
+   }
+   if (userRock.classList.contains("played")) {
+      userRock.classList.remove("played");
+   }
+   if (userPaper.classList.contains("played")) {
+      userPaper.classList.remove("played");
+   }
+   if (userScissors.classList.contains("played")) {
+      userScissors.classList.remove("played");
+   }
 }
 
-function removeTransitionUser(choice) {
-   if (playerSelection === choice) {
-      userRock.addEventListener("transitionend", function (e) {
-         if (e.propertyName === "transform") {
-            userRock.classList.remove("played");
-            removeComputerTransition();
-         }
-      });
-   }
-   if (playerSelection === choice) {
-      userPaper.addEventListener("transitionend", function (e) {
-         if (e.propertyName === "transform") {
-            userPaper.classList.remove("played");
-            removeComputerTransition();
-         }
-      });
-   }
-   if (playerSelection === choice) {
-      userScissors.addEventListener("transitionend", function (e) {
-         if (e.propertyName === "transform") {
-            userScissors.classList.remove("played");
-            removeComputerTransition();
-         }
-      });
-   }
+function removeTransitionComputer() {
+   computerRock.addEventListener("transitionend", function (e) {
+      if (e.propertyName === "transform") {
+         computerRock.classList.remove("played");
+      }
+   });
+   computerPaper.addEventListener("transitionend", function (e) {
+      if (e.propertyName === "transform") {
+         computerPaper.classList.remove("played");
+      }
+   });
+   computerScissors.addEventListener("transitionend", function (e) {
+      if (e.propertyName === "transform") {
+         computerScissors.classList.remove("played");
+      }
+   });
+}
+
+function removeTransitionUser() {
+   userRock.addEventListener("transitionend", function (e) {
+      if (e.propertyName === "transform") {
+         userRock.classList.remove("played");
+      }
+   });
+
+   userPaper.addEventListener("transitionend", function (e) {
+      if (e.propertyName === "transform") {
+         userPaper.classList.remove("played");
+      }
+   });
+
+   userScissors.addEventListener("transitionend", function (e) {
+      if (e.propertyName === "transform") {
+         userScissors.classList.remove("played");
+      }
+   });
 }
 
 function playRound(playerSelection, computerSelection) {
    computerSelection = computerPlay();
    const newLine = "\r\n";
+   resetTransition();
 
    if (playerSelection === computerSelection) {
       ++round;
@@ -85,6 +112,7 @@ function playRound(playerSelection, computerSelection) {
    } else if (playerSelection === "rock" && computerSelection === "scissors") {
       ++round;
       ++playerScore;
+      userRock.classList.add("played");
       computerScissors.classList.add("played");
       document.getElementById("user-points").textContent = playerScore;
       document.getElementById("round-result").textContent +=
@@ -92,6 +120,7 @@ function playRound(playerSelection, computerSelection) {
    } else if (playerSelection === "rock" && computerSelection === "paper") {
       ++round;
       ++computerScore;
+      userRock.classList.add("played");
       computerPaper.classList.add("played");
       document.getElementById("computer-points").textContent = computerScore;
       document.getElementById("round-result").textContent +=
@@ -99,6 +128,7 @@ function playRound(playerSelection, computerSelection) {
    } else if (playerSelection === "paper" && computerSelection === "rock") {
       ++round;
       ++playerScore;
+      userPaper.classList.add("played");
       computerRock.classList.add("played");
       document.getElementById("user-points").textContent = playerScore;
       document.getElementById("round-result").textContent +=
@@ -106,6 +136,7 @@ function playRound(playerSelection, computerSelection) {
    } else if (playerSelection === "paper" && computerSelection === "scissors") {
       ++round;
       ++computerScore;
+      userPaper.classList.add("played");
       computerScissors.classList.add("played");
       document.getElementById("computer-points").textContent = computerScore;
       document.getElementById("round-result").textContent +=
@@ -113,6 +144,7 @@ function playRound(playerSelection, computerSelection) {
    } else if (playerSelection === "scissors" && computerSelection === "paper") {
       ++round;
       ++playerScore;
+      userScissors.classList.add("played");
       computerPaper.classList.add("played");
       document.getElementById("user-points").textContent = playerScore;
       document.getElementById("round-result").textContent +=
@@ -120,29 +152,28 @@ function playRound(playerSelection, computerSelection) {
    } else if (playerSelection === "scissors" && computerSelection === "rock") {
       ++round;
       ++computerScore;
+      userScissors.classList.add("played");
       computerRock.classList.add("played");
       document.getElementById("computer-points").textContent = computerScore;
       document.getElementById("round-result").textContent +=
          "#" + round + " You loose. Rock crushes SCISSORS!" + newLine;
    } else console.log("playRound doesnt work");
    winCondition();
+   removeTransitionUser();
+   removeTransitionComputer();
 }
 
 document.querySelector("#rock-button").addEventListener("click", function () {
    if (gameIsActive === true) {
       playerSelection = "rock";
-      userRock.classList.add("played");
       playRound(playerSelection, computerSelection);
-      return removeTransitionUser("rock");
    }
 });
 
 document.querySelector("#paper-button").addEventListener("click", function () {
    if (gameIsActive === true) {
       playerSelection = "paper";
-      userPaper.classList.add("played");
       playRound(playerSelection, computerSelection);
-      return removeTransitionUser("paper");
    }
 });
 
@@ -151,9 +182,7 @@ document
    .addEventListener("click", function () {
       if (gameIsActive === true) {
          playerSelection = "scissors";
-         userScissors.classList.add("played");
          playRound(playerSelection, computerSelection);
-         return removeTransitionUser("scissors");
       }
    });
 

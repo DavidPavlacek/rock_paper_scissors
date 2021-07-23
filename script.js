@@ -31,26 +31,44 @@ function winCondition() {
 
 function resetTransition() {
    if (computerRock.classList.contains("played")) {
+      computerRock.classList.add("no-transition");
       computerRock.classList.remove("played");
+      computerRock.offsetHeight;
+      computerRock.classList.remove("no-transition");
    }
    if (computerPaper.classList.contains("played")) {
+      computerPaper.classList.add("no-transition");
       computerPaper.classList.remove("played");
+      computerPaper.offsetHeight;
+      computerPaper.classList.remove("no-transition");
    }
    if (computerScissors.classList.contains("played")) {
+      computerScissors.classList.add("no-transition");
       computerScissors.classList.remove("played");
+      computerScissors.offsetHeight;
+      computerScissors.classList.remove("no-transition");
    }
    if (userRock.classList.contains("played")) {
+      userRock.classList.add("no-transition");
       userRock.classList.remove("played");
+      userRock.offsetHeight;
+      userRock.classList.remove("no-transition");
    }
    if (userPaper.classList.contains("played")) {
+      userPaper.classList.add("no-transition");
       userPaper.classList.remove("played");
+      userPaper.offsetHeight;
+      userPaper.classList.remove("no-transition");
    }
    if (userScissors.classList.contains("played")) {
+      userScissors.classList.add("no-transition");
       userScissors.classList.remove("played");
+      userScissors.offsetHeight;
+      userScissors.classList.remove("no-transition");
    }
 }
 
-function removeTransitionComputer() {
+function transitionEnd() {
    computerRock.addEventListener("transitionend", function (e) {
       if (e.propertyName === "transform") {
          computerRock.classList.remove("played");
@@ -66,9 +84,6 @@ function removeTransitionComputer() {
          computerScissors.classList.remove("played");
       }
    });
-}
-
-function removeTransitionUser() {
    userRock.addEventListener("transitionend", function (e) {
       if (e.propertyName === "transform") {
          userRock.classList.remove("played");
@@ -159,8 +174,7 @@ function playRound(playerSelection, computerSelection) {
          "#" + round + " You loose. Rock crushes SCISSORS!" + newLine;
    } else console.log("playRound doesnt work");
    winCondition();
-   removeTransitionUser();
-   removeTransitionComputer();
+   transitionEnd();
 }
 
 document.querySelector("#rock-button").addEventListener("click", function () {

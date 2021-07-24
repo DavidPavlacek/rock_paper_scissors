@@ -29,7 +29,7 @@ function winCondition() {
    }
 }
 
-function resetTransition() {
+function resetTransitionInProgress() {
    if (computerRock.classList.contains("played")) {
       computerRock.classList.add("no-transition");
       computerRock.classList.remove("played");
@@ -105,13 +105,11 @@ function transitionEnd() {
 
 function playRound(playerSelection, computerSelection) {
    computerSelection = computerPlay();
-   const newLine = "\r\n";
-   resetTransition();
+   resetTransitionInProgress();
 
    if (playerSelection === computerSelection) {
       ++round;
-      document.getElementById("round-result").textContent +=
-         "#" + round + " It's a tie! No points." + newLine;
+      turnLogArr.push("#" + round + " It's a tie! No points.");
       if (playerSelection === "rock") {
          userRock.classList.add("played");
          computerRock.classList.add("played");
@@ -130,51 +128,46 @@ function playRound(playerSelection, computerSelection) {
       userRock.classList.add("played");
       computerScissors.classList.add("played");
       document.getElementById("user-points").textContent = playerScore;
-      document.getElementById("round-result").textContent +=
-         "#" + round + " You win. ROCK crushes scissors!" + newLine;
+      turnLogArr.push("#" + round + " You win. ROCK crushes scissors!");
    } else if (playerSelection === "rock" && computerSelection === "paper") {
       ++round;
       ++computerScore;
       userRock.classList.add("played");
       computerPaper.classList.add("played");
       document.getElementById("computer-points").textContent = computerScore;
-      document.getElementById("round-result").textContent +=
-         "#" + round + " You loose. Paper wraps ROCK!" + newLine;
+      turnLogArr.push("#" + round + " You loose. Paper wraps ROCK!");
    } else if (playerSelection === "paper" && computerSelection === "rock") {
       ++round;
       ++playerScore;
       userPaper.classList.add("played");
       computerRock.classList.add("played");
       document.getElementById("user-points").textContent = playerScore;
-      document.getElementById("round-result").textContent +=
-         "#" + round + " You win. PAPER wraps rock!" + newLine;
+      turnLogArr.push("#" + round + " You win. PAPER wraps rock!");
    } else if (playerSelection === "paper" && computerSelection === "scissors") {
       ++round;
       ++computerScore;
       userPaper.classList.add("played");
       computerScissors.classList.add("played");
       document.getElementById("computer-points").textContent = computerScore;
-      document.getElementById("round-result").textContent +=
-         "#" + round + " You loose. Scissors cut PAPER!" + newLine;
+      turnLogArr.push("#" + round + " You loose. Scissors cut PAPER!");
    } else if (playerSelection === "scissors" && computerSelection === "paper") {
       ++round;
       ++playerScore;
       userScissors.classList.add("played");
       computerPaper.classList.add("played");
       document.getElementById("user-points").textContent = playerScore;
-      document.getElementById("round-result").textContent +=
-         "#" + round + " You win. SCISSORS cut paper!" + newLine;
+      turnLogArr.push("#" + round + " You win. SCISSORS cut paper!");
    } else if (playerSelection === "scissors" && computerSelection === "rock") {
       ++round;
       ++computerScore;
       userScissors.classList.add("played");
       computerRock.classList.add("played");
       document.getElementById("computer-points").textContent = computerScore;
-      document.getElementById("round-result").textContent +=
-         "#" + round + " You loose. Rock crushes SCISSORS!" + newLine;
+      turnLogArr.push("#" + round + " You loose. Rock crushes SCISSORS!");
    } else console.log("playRound doesnt work");
    winCondition();
    transitionEnd();
+   gameLog();
 }
 
 document.querySelector("#rock-button").addEventListener("click", function () {
@@ -205,11 +198,35 @@ function init() {
    document.getElementById("computer-points").textContent = "0";
    document.getElementById("round-result").textContent = " ";
    document.getElementById("play-again").style.display = "none";
+   roundResult.insertAdjacentElement("afterbegin", resultLog);
+   removeChild();
    round = 0;
    playerScore = 0;
    computerScore = 0;
+   turnLogArr = [];
    gameIsActive = true;
 }
 
 document.getElementById("play-again").addEventListener("click", init);
 document.getElementById("play-again").style.display = "none";
+
+/* ==== Turn Log ==== */
+
+let turnLogArr = [];
+let roundResult = document.getElementById("round-result");
+let resultLog = document.createElement("ul");
+resultLog.style.listStyleType = "none";
+roundResult.insertAdjacentElement("afterbegin", resultLog);
+
+function removeChild() {
+   while (resultLog.firstChild) {
+      resultLog.removeChild(resultLog.firstChild);
+   }
+}
+
+function gameLog() {
+   let li = document.createElement("li");
+   li.textContent = turnLogArr[`${turnLogArr.length - 1}`];
+   resultLog.insertAdjacentElement("afterbegin", li);
+}
+/* ================== */

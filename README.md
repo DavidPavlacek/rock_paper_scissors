@@ -10,3 +10,5 @@ I got comfortable creating functions and much more.
 In general, this project was a great challange where I took, what seemed to me is, a big problem, took it apart to a number of small problems and then solved them one by one.
 
 What got me the most stuck was finding out a way how to synchronize (basicaly reset) the transition of the buttons even when they were being clicked quickly.
+
+LIVE DEMO: https://davidpavlacek.github.io/rock_paper_scissors/

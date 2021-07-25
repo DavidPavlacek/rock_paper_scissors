@@ -210,8 +210,6 @@ function init() {
 document.getElementById("play-again").addEventListener("click", init);
 document.getElementById("play-again").style.display = "none";
 
-/* ==== Turn Log ==== */
-
 let turnLogArr = [];
 let roundResult = document.getElementById("round-result");
 let resultLog = document.createElement("ul");
@@ -229,4 +227,3 @@ function gameLog() {
    li.textContent = turnLogArr[`${turnLogArr.length - 1}`];
    resultLog.insertAdjacentElement("afterbegin", li);
 }
-/* ================== */
